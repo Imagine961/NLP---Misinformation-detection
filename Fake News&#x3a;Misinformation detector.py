@@ -71,7 +71,8 @@ else:
     print("Model Accuracy:", round(accuracy_score(y_test, y_pred) * 100, 2), "%")
     print("Classification Report:\n", classification_report(y_test, y_pred))
 
-    # Display Confusion Matrix
+    # Function to Display Confusion Matrix
+def confusion_matrix_display():
     print("Confusion Matrix:")
     cm = confusion_matrix(y_test, y_pred)
     sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=['FAKE', 'REAL'], yticklabels=['FAKE', 'REAL'])
@@ -88,6 +89,8 @@ def classify_text(text):
     return cleaned_text, prediction
 
 while True:
+
+    
     user_text = input("\nEnter a news article (or type 'exit' to quit): ")
     if user_text.lower() == 'exit':
         print("Exiting...")
